@@ -3,9 +3,12 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    public AudioSource EfxSource;
 
+    public AudioSource EfxSource;
     public SoundType SoundType;
+
+    public bool isShooting;
+    public bool isReloading;
 
     private void Awake()
     {
@@ -23,7 +26,23 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void PlayReload()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            EfxSource.clip = SoundType.Reload;
+            EfxSource.PlayOneShot(EfxSource.clip);
+        }
+    }
 
+    public void Update()
+    {
+        if(isShooting)
+        {
+            PlayShot();
+            isShooting = false;
+        }
+    }
 
     //public Button AudioUnmuted;
     //public Button AudioMuted;
@@ -70,6 +89,7 @@ public class SoundManager : MonoBehaviour
 
 }
 
+[Serializable]
 public class SoundType
 {
     public AudioClip Fire;
@@ -79,17 +99,36 @@ public class SoundType
     {
         public Rifle()
         {
-            Fire = Resources.Load("Sounds/Rifle") as AudioClip;
+            Fire = Resources.Load("Sounds/Rifle/RifleShot") as AudioClip;
+            Reload = Resources.Load("Sounds/Rifle/RifleReload") as AudioClip;
         }
     }
 
-    public class Shotgun : SoundType { 
+    public class Shotgun : SoundType 
+    { 
         public Shotgun() 
         { 
-            Fire = Resources.Load("Sounds/Shotgun") as AudioClip;
+            Fire = Resources.Load("Sounds/Shotgun/ShotgunShot") as AudioClip;
+            Reload = Resources.Load("Sounds/Shotgun/ShotgunReload") as AudioClip;
         }
     }
-    public class Hangdun : SoundType { }
-    public class Lasergun : SoundType { }
+
+    public class Handgun : SoundType 
+    { 
+        public Handgun()
+        {
+            Fire = Resources.Load("Sounds/Handgun/HandgunShot") as AudioClip;
+            Reload = Resources.Load("Sounds/Handgun/HandgunReload") as AudioClip;
+        }
+    }
+
+    public class Lasergun : SoundType
+    {
+        public Lasergun()
+        {
+            Fire = Resources.Load("Sounds/Laser/LaserShot") as AudioClip;
+            Reload = Resources.Load("Sounds/Handgun/LaserReload") as AudioClip;
+        }
+    }
 
 }

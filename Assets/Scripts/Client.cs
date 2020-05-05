@@ -117,7 +117,6 @@ public class Client : MonoBehaviour
         try
         {
             socketConnection = new TcpClient("192.168." + IPText[0] + "." + IPText[1], 8000);
-            //socketConnection = new TcpClient("192.168.1.10", 8000);
             Byte[] bytes = new Byte[1024];
             while (true)
             {
@@ -132,7 +131,19 @@ public class Client : MonoBehaviour
                         Array.Copy(bytes, 0, incommingData, 0, length);
                         // Convert byte array to string message. 						
                         string serverMessage = Encoding.ASCII.GetString(incommingData);
-                        Debug.Log("server message received as: " + serverMessage);
+                        string[] message = serverMessage.Split('+');
+
+                        if (MyName == message[0])
+                        {
+                            if(message[1] == "Shoot")
+                            {
+                                SoundManager.Instance.isShooting = true;
+                            }
+                            else if(message[1] == "Reload")
+                            {
+                                SoundManager.Instance.isReloading = true;
+                            }
+                        }
                     }
                 }
             }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ClassSelection : MonoBehaviour
 {
     public Client Client;
-    public ControllerSystem ControllerSystem;
     private List<Button> _choiceButtons;
     private void Awake()
     {
@@ -25,23 +24,18 @@ public class ClassSelection : MonoBehaviour
         {
             case 0:
                 SoundManager.Instance.SoundType = new SoundType.Rifle();
-                ControllerSystem.Gun = new Rifle();
                 break;
             case 1:
                 SoundManager.Instance.SoundType = new SoundType.Shotgun();
-                ControllerSystem.Gun = new Shotgun();
                 break;
             case 2:
-                SoundManager.Instance.SoundType = new SoundType.Hangdun();
-                ControllerSystem.Gun = new Handgun();
+                SoundManager.Instance.SoundType = new SoundType.Handgun();
                 break;
             case 3:
                 SoundManager.Instance.SoundType = new SoundType.Lasergun();
-                ControllerSystem.Gun = new Laser();
                 break;
             default:
                 SoundManager.Instance.SoundType = new SoundType.Rifle();
-                ControllerSystem.Gun = new Rifle();
                 break;
         }
     }
