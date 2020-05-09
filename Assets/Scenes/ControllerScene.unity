@@ -919,7 +919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Client: {fileID: 1404137441}
-  ControllerSystem: {fileID: 1613436634}
 --- !u!1 &369851533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3643,7 +3642,7 @@ PrefabInstance:
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_Name
-      value: Fixed Joystick
+      value: Rotation Joystick
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -3710,6 +3709,8 @@ MonoBehaviour:
   SoundType:
     Fire: {fileID: 0}
     Reload: {fileID: 0}
+  isShooting: 0
+  isReloading: 0
 --- !u!4 &1566081145
 Transform:
   m_ObjectHideFlags: 0
@@ -5025,7 +5026,7 @@ PrefabInstance:
     - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
       propertyPath: m_Name
-      value: Floating Joystick
+      value: Movement Joystick
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791961219459, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
