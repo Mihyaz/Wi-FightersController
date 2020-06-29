@@ -37,12 +37,6 @@ public class Client : MonoBehaviour
     public GameObject SectionClass;
     public GameObject SectionConnectionDimmer;
 
-    // Use this for initialization 	
-    void Start()
-    {
-        //ConnectToTcpServer();
-    }
-
     public void AssignIP()
     {
         IPText[0] = IP_Field_1.text;

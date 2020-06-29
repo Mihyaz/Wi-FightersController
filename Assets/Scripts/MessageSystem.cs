@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageSystem : MonoBehaviour, IAttack
+public class MessageSystem : MonoBehaviour, IMessage
 {
     public bool isShooting { get; set; }
     public bool isReloading { get; set; }

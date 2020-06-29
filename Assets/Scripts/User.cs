@@ -1,19 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using OnurMihyaz;
-using System.Runtime.Remoting.Messaging;
 
 public class User : MonoBehaviour
 {
     public Client Client;
     IMove _movement;
-    IAttack _attack;
+    IMessage _attack;
 
     private void Start()
     {
         _movement = GetComponent<IMove>();
-        _attack = GetComponent<IAttack>();
+        _attack = GetComponent<IMessage>();
     }
 
     private void Update()
